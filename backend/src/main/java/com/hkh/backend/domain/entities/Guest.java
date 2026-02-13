@@ -27,6 +27,7 @@ public class Guest {
     @Column(name = "id_card_number", unique = true)
     private String idCardNumber;
 
+    @Column(unique = true)
     private String email;
 
     @Column(columnDefinition = "TEXT")
