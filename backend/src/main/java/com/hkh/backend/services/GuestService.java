@@ -7,5 +7,5 @@ import java.util.List;
 public interface GuestService {
     GuestDto addGuest(GuestDto guestDto);
     List<GuestDto> getAllGuests();
-    GuestDto findGuestById(Integer id);
+    GuestDto getGuestById(Integer id);
 }

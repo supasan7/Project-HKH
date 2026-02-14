@@ -44,7 +44,7 @@ public class GuestServiceImpl implements GuestService {
     }
 
     @Override
-    public GuestDto findGuestById(Integer id) {
+    public GuestDto getGuestById(Integer id) {
         return guestRepository.findById(id)
                 .map(guestMapper::toDto)
                 .orElseThrow(() -> new IllegalArgumentException("Guest not found"));
