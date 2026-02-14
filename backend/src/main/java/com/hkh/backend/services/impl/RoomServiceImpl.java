@@ -7,6 +7,7 @@ import com.hkh.backend.repositories.RoomRepository;
 import com.hkh.backend.services.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +19,7 @@ public class RoomServiceImpl implements RoomService {
     private final RoomRepository roomRepository;
     private final RoomMapper roomMapper;
 
+    @Transactional
     @Override
     public RoomDto addRoom(RoomDto roomDto) {
         if(roomDto.getRoomNumber() != null && roomRepository.findByRoomNumber(roomDto.getRoomNumber()).isPresent()) {
@@ -42,6 +44,7 @@ public class RoomServiceImpl implements RoomService {
                 .orElseThrow(() -> new IllegalArgumentException("Room not found"));
     }
 
+    @Transactional
     @Override
     public RoomDto updateRoomStatus(Integer id, String newStatus) {
         Room room = roomRepository.findById(id)

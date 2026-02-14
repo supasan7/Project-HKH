@@ -7,6 +7,7 @@ import com.hkh.backend.repositories.GuestRepository;
 import com.hkh.backend.services.GuestService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class GuestServiceImpl implements GuestService {
     private final GuestRepository guestRepository;
     private final GuestMapper guestMapper;
 
+    @Transactional
     @Override
     public GuestDto addGuest(GuestDto guestDto) {
 
