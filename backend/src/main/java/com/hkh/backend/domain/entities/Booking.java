@@ -29,15 +29,18 @@ public class Booking {
     private Guest guest;
 
     @Column(name = "check_in_date")
-    private LocalDate checkInDate;
+    private LocalDate checkIn;
 
     @Column(name = "check_out_date")
-    private LocalDate checkOutDate;
+    private LocalDate checkOut;
 
     @Column(name = "total_price")
     private BigDecimal totalPrice;
 
     private String status;
+
+    @Column(name = "deposit_amount")
+    private BigDecimal depositAmount;
 
     @OneToMany(mappedBy = "booking")
     private List<Transaction> transactions;
